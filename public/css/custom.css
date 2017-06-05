@@ -1,0 +1,57 @@
+.well {
+    background: rgb(222, 245, 255);
+-webkit-box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+}
+
+body {
+background-color: #30486b;
+font-family: 'Montserrat', sans-serif;
+}
+
+/* unvisited link */
+a:link {
+    color: #404040;
+}
+
+/* visited link */
+a:visited {
+    color: #404040;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #404040;
+}
+
+.custom_btn {
+background: rgb(127, 216, 255);
+-webkit-box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 14px -3px rgba(0,0,0,0.75);
+}
+
+#error_alert {
+	margin-top:10px;
+	color:red;
+	text-align:center;
+	display:inline-block;
+}
+
+.feeddit_title{
+	font-size: 200px;
+	text-align: center;
+	color: rgb(222, 245, 255);
+}
+
+.error{
+    color:red;
+    font-size:15px;
+}

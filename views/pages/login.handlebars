@@ -1,0 +1,29 @@
+<div class="container">
+	<h1 class="feeddit_title">Feeddit</h1>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="well custom-well">
+		<form action="/auth/login" method="post" id="login_form">
+			<div class="form-group">
+				<h1>Prijava:</h1>
+				<hr style="border: 1px solid black;">
+			</div>
+			<div class="form-group">
+				<label for="username">Korisničko ime:</label>
+				<input type="text" class="form-control" name="username" id="username">
+			</div>
+			<div class="form-group">
+				<label for="password">Lozinka:</label>
+				<input type="password" class="form-control" name="password" id="password">
+			</div>
+			<input class="btn submit custom_btn" type="submit" value="Prijavi se" name="submit" /><br>
+			{{#if error}}
+			<p id="error_alert">{{error}}</p>
+			{{/if}}
+		</form>
+		<hr style="border: 1px solid black;">
+		<p>Nemaš korisnički račun?</p> <a href="/auth/register">Registriraj se</a>
+		</div>
+	</div>
+</div>
+<script language="JavaScript" type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/validation/loginValidate.js"></script>

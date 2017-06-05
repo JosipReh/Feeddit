@@ -1,0 +1,59 @@
+<body>
+	<div class="container">
+		<h1 style="text-align:center;color:rgb(222, 245, 255);">Dodajte novi članak!</h1>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="well">
+					<form action="/index/article/add/" method="post" id="new_article_form">
+						<div class="row">
+							<div class="col-md-6">
+								<label for="article_votes" class="article_label">Glasovi:</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="article_votes" class="form-control" name="article_votes" readonly="true" value="0">
+							</div>
+						</div>
+						<div class="row" style="margin-top:15px;">
+							<div class="col-md-6">
+								<label for="article_post_by" class="article_label">Objavljuje:</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="article_post_by" class="form-control" name="article_post_by" readonly="true" value="{{user.username}}">
+							</div>
+						</div>
+						<div class="row" style="margin-top:15px;">
+							<div class="col-md-6">
+								<label for="article_title" class="article_label">Naslov:</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="article_title" class="form-control" name="article_title">
+							</div>
+						</div>
+						<div class="row" style="margin-top:15px;">
+							<div class="col-md-6">
+								<label for="real_url" class="article_label">Link:</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="real_url" class="form-control" name="real_url">
+							</div>
+						</div>
+						<div class="row" style="margin-top:15px;">
+							<div class="col-md-6">
+								<label for="article_author" class="article_label">Autor:</label>
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="article_author" class="form-control" name="article_author">
+							</div>
+						</div>
+
+						<button class="btn custom_btn" type="submit" id="submit_button" name="article_success"style="width:40%;margin-right:5%;margin-top:20px;">Objavi</button>
+						<button class="btn custom_btn" type="button" name="article_cancle" style="width:40%;margin-left:5%;margin-top:20px;" onclick="canclePost();">Poništi</button>
+						<p id="error_alert"></p>
+					</form>
+				</div><!-- end of well -->
+			</div>
+		</div>
+	</div>
+</body>
+<script language="JavaScript" type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/validation/articleValidate.js"></script>

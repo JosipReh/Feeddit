@@ -1,0 +1,84 @@
+<script src="//cdn.rawgit.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<a href="/index/article/new/"><button type="submit" style="width:100%;" class="btn custom_btn">Dodajte novi članak</button></a>
+			</div>
+			<div class="col-md-6"></div>
+		</div>
+		{{#if articleList}}
+		{{#each articleList}}
+		<div class="row post_row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="well">
+					<div class="post_container">
+						<div class="post_content">
+							<div class="post_title">
+								<a href="{{real_url}}" target="_blank">
+									<h4 style="font-size:30px;word-wrap:break-word">{{article_title}}</h4>
+								</a>
+							</div><!-- end of post_title -->
+							<br>
+							<hr style="border: 1px solid black;margin-top:20px;">
+							<div class="post_author">
+								<p style="font-size:13px;">
+									Autor: {{article_author}}
+								</p>
+							</div> <!-- end of post author -->
+						</div><!-- end of post_content -->
+
+						<form action="/index/article/vote/{{article_id}}" class="vote_form" method="post" article_id="{{article_id}}">
+							<div class="post_votes_container">
+								<button class="btn upvote_btn" type="submit" name="vote" value="1">
+									<i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+								</button>
+								<p class="vote_num" style="text-align:center;">{{article_votes}}</p>
+								<button class="btn downvote_btn" type="submit" name="vote" value="-1">
+									<i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+								</button>
+							</div><!-- end of post_votes_container -->
+						</form>
+					</div> <!-- end of post container -->
+
+				</div> <!-- end of well -->
+			</div> <!-- end of col-md-6 -->
+		</div> <!-- end of post_row -->
+		{{/each}}
+		<!-- start of paginator -->
+		<center>
+			<div class="paginator">
+			<script>
+				$('.paginator').bootpag({
+					total: {{ page_count }},
+					page: {{ current_page_num }},
+					maxVisible: 5,
+					leaps: true,
+					firstLastUse: true,
+					first: '←',
+					last: '→',
+					wrapClass: 'pagination pagination-lg',
+					activeClass: 'active',
+					disabledClass: 'disabled',
+					nextClass: 'next',
+					prevClass: 'prev',
+					lastClass: 'last',
+					firstClass: 'first'
+					}).on("page", function(event, num){
+						window.location.href = "/index/"+num;
+					}); 
+			</script>
+			</div>
+		</center>
+		{{else}}
+			<div class="col-md-6 col-md-offset-3">
+				<div class="well" style="margin-top:10px;">
+					<h1 style="text-align:center">Ne postoji ni jedan članak!</h1>
+					<p style="text-align:center">Dodajte članak pritiskom na gumb "Dodajte novi članak"</p>
+				</div>
+			</div>
+		{{/if}} <!-- there is no articles -->
+	</div>
+</body>
+<script type="text/javascript" src="/js/ajax/voteAjax.js"></script>
